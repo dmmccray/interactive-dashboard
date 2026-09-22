@@ -1,4 +1,8 @@
 // Metric Converter
+const value = parseFloat(inputvalue);
+const result = document.getelementbyid("result")
+
+
 var inputvalue = 0;
 var outputvalue = 0;
 var inputunit = "";
