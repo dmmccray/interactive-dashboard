@@ -1,0 +1,52 @@
+const answers = [
+    "Yes, you are correct.",
+    "No Not Today",
+    "Today is a Good Day.",
+    "Tomorrow will be a better Day.",
+    "Awesome.",
+    "You are Correct."
+];
+
+function displayAnswer() {
+
+    const randomIndex = Math.floor(Math.random() * answers.length);
+    const selectedAnswer = answers[randomIndex];
+    const circleDiv = document.getElementById("circle");
+   
+    circleDiv.innerHTML = selectedAnswer;
+    circleDiv.style.display = "block";
+}
+
+
+document.getElementById("ball").addEventListener("mousedown", function() {
+ 
+    const questionValue = document.getElementById("question").value.trim();
+
+      if (questionValue === "") {
+        alert("Please enter a question before shaking the Magic Eight Ball!");
+    } else {
+        // d. Using an else statement, run the displayAnswer function
+        displayAnswer();
+    }
+});
+
+document.getElementById("reset").addEventListener("click", function() {
+    document.getElementById("circle").style.display = "none";
+});
+
+document.getElementById("add-response").addEventListener("click", function() {
+    const newResponseInput = document.getElementById("new-response");
+    const newResponseText = newResponseInput.value.trim();
+
+
+    if (newResponseText !== "") {
+       
+        answers.push(newResponseText);
+         console.log("Added Response: " + newResponseText);
+        console.log("Current number of responses in the array: " + answers.length);
+
+        newResponseInput.value = "";
+    } else {
+        alert("Please enter question.");
+    }
+});
